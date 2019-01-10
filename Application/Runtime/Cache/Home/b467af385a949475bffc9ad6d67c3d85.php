@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><a href="/index.php?m=home&c=memberGroup&a=index">会员分组</a><br/><a href="/index.php?m=home&c=members&a=index">会员管理</a>

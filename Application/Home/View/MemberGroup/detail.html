@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>会员分组详情</title>
+</head>
+<body>
+<h1>会员分组详情</h1>
+<div></div>
+
+<table width="500">
+<tr>
+<td width="100">会员组名称</td> <td>{$data['name']}</td>
+</tr>
+<tr>
+<td width="100">创建时间</td> <td>{$data['creattime']}</td>
+</tr>
+<tr>
+<td width="100">注释</td> <td>{$data['remark']}</td>
+</tr>
+<tr>
+<td width="100">会员数量</td> <td>{$data['nums']}</td>
+</tr>
+<tr>
+<td width="100">所属会员</td> <td></td>
+</tr>
+</table>
+<?php if(!empty($members)){ ?>
+<table width="300">
+<tr width="100"><td>身份证号码</td><td>姓名</td><td>性别</td></tr>
+<?>
+ <?php foreach($members as $v) { ?>
+ 		<tr><td>{$v[certinum]}</td><td>{$v['name']}</td><td>{$v['sex']==1?"男":"女"}</td></tr>
+ <?php } ?>
+</table>
+<?php } ?>
+</body>
+</html>

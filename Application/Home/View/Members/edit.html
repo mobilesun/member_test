@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>编辑会员</title>
+</head>
+<body>
+<h1>编辑会员</h1>
+<div></div>
+<form action="/index.php?m=home&c=Members&a=edit&id={$data['id']}" method="post" enctype="multipart/form-data">
+<table width="600">
+<tr>
+<td width="100">会员姓名</td> <td><input type="text" name="name" size="30" value="{$data['name']}"></td>
+</tr>
+<tr>
+<td width="100">身份证号</td> <td><input type="text" name="certinum" size="30" value="{$data['certinum']}"></td>
+</tr>
+<tr>
+<td width="100">性别</td> <td><input type="radio" name="sex" value="1" {$data['sex']==1?"checked":""}>男 <input type="radio" name="sex" value="2" {$data['sex']==2?"checked":""}>女</td>
+</tr>
+<tr>
+<td width="100">加入日期</td> <td><input type="input" name="creattime" size="30" value="{$data['creattime']|strtotime|date='Y-m-d',###}" > <font color="red">*格式如"2019-10-02"</font></td>
+</tr>
+<tr>
+<td width="100">所属分组</td> 
+<td>
+<?php foreach($groups as $k=>$v) { ?>
+<input type="checkbox" name="group_ids[]" value="{$k}" <?php echo in_array($k,explode(',',$data['group_ids']))?"checked":""; ?> />{$v} &nbsp;&nbsp;&nbsp;
+<?php } ?>
+	
+</td>
+</tr>
+<tr>
+<td width="100">照片</td> <td><input type='file' name='photo' /></td>
+</tr>
+<tr>
+<td width="100">注释</td> <td><textarea name="remark">{$data['remark']}</textarea>></td>
+</tr>
+
+</table>
+<input type="submit"/>
+</form>
+</body>
+</html>
